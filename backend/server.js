@@ -12,8 +12,6 @@ mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
-
-app.use('/api/projects', require('./routes/projects'));
 app.use('/api/contact', require('./routes/contact'));
 
 app.get('/', (req, res) => res.send('Portfolio API Running'));
