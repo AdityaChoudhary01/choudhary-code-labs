@@ -4,8 +4,8 @@ import axios from 'axios';
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const socials = [
-  { icon: <FaGithub />, link: "https://github.com/yourusername" },
-  { icon: <FaLinkedin />, link: "https://linkedin.com/in/yourusername" },
+  { icon: <FaGithub />, link: "https://github.com/AdityaChoudhary01" },
+  { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/aditya-kumar-38093a304/" },
   { icon: <FaTwitter />, link: "https://twitter.com/yourusername" }
 ];
 
