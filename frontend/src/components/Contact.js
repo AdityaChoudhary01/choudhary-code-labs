@@ -36,7 +36,7 @@ export default function Contact() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/contact', form);
+      await axios.post('http://localhost:5000/https://portfolio3-cj9i.onrender.com/contact', form);
       setSent(true);
       setForm({ name: '', email: '', message: '' });
     } catch {
