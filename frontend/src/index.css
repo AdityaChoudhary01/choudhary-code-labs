@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Inter', sans-serif;
+/* Define CSS variables for theming */
+@layer base {
+  :root {
+    --bg-color: #F0F2F5;
+    --card-color: rgba(255, 255, 255, 0.7);
+    --text-color: #1f2937;
+    --heading-color: #111827;
+    --accent-color: #3B82F6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --bg-color: #0F172A;
+    --card-color: rgba(15, 23, 42, 0.7);
+    --text-color: #E2E8F0;
+    --heading-color: #FFFFFF;
+    --accent-color: #60A5FA;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+}
+
+/* Define the glass effect component */
+@layer components {
+  .glass-card {
+    @apply bg-[var(--card-color)] backdrop-blur-xl rounded-2xl shadow-lg border border-white/10;
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+  }
 }
