@@ -1,101 +1,66 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava, FaPython } from 'react-icons/fa';
+import { SiExpress, SiMongodb, SiTailwindcss, SiCplusplus } from 'react-icons/si';
 
 const skills = [
-	{ name: 'JavaScript', icon: '🟨' },
-	{ name: 'React.js', icon: '⚛️' },
-	{ name: 'Node.js', icon: '🟩' },
-	{ name: 'Express.js', icon: '🚂' },
-	{ name: 'MongoDB', icon: '🍃' },
-	{ name: 'HTML5', icon: '🔶' },
-	{ name: 'CSS3', icon: '🔷' },
-	{ name: 'Tailwind CSS', icon: '🌬️' },
-	{ name: 'Framer Motion', icon: '🎞️' },
-	{ name: 'Git & GitHub', icon: '🐙' },
-	{ name: 'Java', icon: '☕' },
-	{ name: 'Python', icon: '🐍' },
-	{ name: 'OOPs', icon: '📘' },
-	{ name: 'SQL', icon: '🗄️' },
-	{ name: 'C', icon: '🔵' },
-	{ name: 'C++', icon: '➕' },
+    { name: 'JavaScript', icon: <FaJs className="text-yellow-400" /> },
+    { name: 'React.js', icon: <FaReact className="text-blue-400" /> },
+    { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
+    { name: 'Express.js', icon: <SiExpress className="text-gray-400" /> },
+    { name: 'MongoDB', icon: <SiMongodb className="text-green-600" /> },
+    { name: 'HTML5', icon: <FaHtml5 className="text-orange-500" /> },
+    { name: 'CSS3', icon: <FaCss3Alt className="text-blue-500" /> },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
+    { name: 'Git', icon: <FaGitAlt className="text-red-500" /> },
+    { name: 'Java', icon: <FaJava className="text-red-400" /> },
+    { name: 'Python', icon: <FaPython className="text-blue-300" /> },
+    { name: 'C++', icon: <SiCplusplus className="text-blue-600" /> },
 ];
 
-export default function About() {
-	return (
-		<motion.div
-			className="flex flex-col items-center justify-center min-h-screen pt-32 px-4"
-			initial={{ opacity: 0, y: 60 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.8 }}
-		>
-			<div className="bg-glass dark:bg-glassDark backdrop-blur-md rounded-3xl p-10 shadow-2xl max-w-4xl w-full flex flex-col md:flex-row items-center gap-10">
-				{/* Profile Photo */}
-				<motion.img
-					src="/profile.jpg"
-					alt="Profile"
-					className="w-48 h-48 rounded-full object-cover border-4 border-pink-500 shadow-lg"
-					initial={{ scale: 0.8, opacity: 0 }}
-					animate={{ scale: 1, opacity: 1 }}
-					transition={{ duration: 0.8 }}
-				/>
+const About = () => {
+  return (
+    <div className="container mx-auto px-4 py-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1 className="text-4xl font-bold text-center mb-8">About Me</h1>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+          <motion.div
+            className="w-full md:w-1/2"
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="text-lg leading-relaxed mb-4">
+              Hello! I'm a passionate and dedicated full-stack developer with a love for creating beautiful and functional web applications. My journey in tech has been driven by a curiosity to learn and a desire to build things that make a difference.
+            </p>
+            <p className="text-lg leading-relaxed">
+              I specialize in the MERN stack (MongoDB, Express.js, React.js, Node.js) and I'm always eager to explore new technologies to expand my skillset.
+            </p>
+          </motion.div>
+          <motion.div
+            className="w-full md:w-1/2"
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-2xl font-semibold text-center mb-6">My Skills</h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              {skills.map((skill, index) => (
+                <div key={index} className="flex flex-col items-center p-4 bg-gray-200 dark:bg-slate-800 rounded-lg shadow-md">
+                   <div className="text-4xl mb-2">{skill.icon}</div>
+                   <p className="font-semibold">{skill.name}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
-				{/* Text and Skills */}
-				<div className="text-center md:text-left flex-1">
-					<h2 className="text-4xl font-bold mb-4 text-indigo-700 dark:text-indigo-200">
-						About Me
-					</h2>
-					<p className="text-lg text-slate-700 dark:text-slate-200 mb-6">
-						Hi! I'm{' '}
-						<span className="font-semibold text-pink-500">
-							Aditya Choudhary
-						</span>
-						, a passionate full stack developer specializing in the MERN stack.
-						I love building beautiful, performant web applications and exploring
-						new technologies. I also have a strong foundation in{' '}
-						<span className="font-semibold text-indigo-500">
-							Data Structures and Algorithms (DSA)
-						</span>{' '}
-						using{' '}
-						<span className="font-semibold text-indigo-500">Java</span>, which
-						helps me write efficient and scalable code.
-					</p>
-					<p className="text-lg text-slate-700 dark:text-slate-200 mb-6">
-						My interests include UI/UX design, animations, and scalable backend
-						systems. I enjoy collaborating with others and constantly learning to
-						improve my craft.
-					</p>
-					<p className="text-lg text-slate-700 dark:text-slate-200 mb-8">
-						When I'm not coding, you’ll find me reading, hiking, or experimenting
-						with creative projects!
-					</p>
-
-					<h3 className="text-2xl font-bold mb-4 text-pink-600">Skills</h3>
-					<div className="flex flex-wrap justify-center md:justify-start gap-4">
-						{skills.map((skill) => (
-							<motion.div
-								key={skill.name}
-								className="flex flex-col items-center bg-white/70 dark:bg-slate-800 rounded-xl px-4 py-3 shadow-md m-2"
-								whileHover={{ scale: 1.08, rotate: 2 }}
-								transition={{ type: 'spring', stiffness: 300 }}
-							>
-								<span className="text-3xl mb-1">{skill.icon}</span>
-								<span className="text-base font-semibold text-indigo-700 dark:text-indigo-200">
-									{skill.name}
-								</span>
-							</motion.div>
-						))}
-					</div>
-
-					{/* Download Resume Button */}
-					<a
-						href="/resume.pdf"
-						download
-						className="inline-block px-6 py-2 bg-indigo-600 text-white rounded-lg font-bold shadow hover:bg-pink-600 transition mt-6"
-					>
-						Download Resume
-					</a>
-				</div>
-			</div>
-		</motion.div>
-	);
-}
+export default About;
