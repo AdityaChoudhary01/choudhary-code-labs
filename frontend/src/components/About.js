@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava, FaPython } from 'react-icons/fa';
 import { SiExpress, SiMongodb, SiTailwindcss, SiCplusplus } from 'react-icons/si';
+import { FiDownload } from 'react-icons/fi';
 
-// --- Add your skills here ---
+// --- Your Skills Data ---
 const skills = [
     { name: 'JavaScript', icon: <FaJs className="text-yellow-400" /> },
     { name: 'React.js', icon: <FaReact className="text-blue-400" /> },
@@ -21,66 +22,75 @@ const skills = [
 
 const About = () => {
   return (
-    <div className="container mx-auto px-4 py-16 min-h-screen flex items-center">
+    <div className="container mx-auto px-4">
       <motion.div
         className="w-full"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
       >
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">About Me</h1>
         
-        {/* --- Profile Section --- */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mb-12">
-          
-          {/* Image */}
+          {/* Profile Image */}
           <motion.div
-            className="w-48 h-48 md:w-64 md:h-64"
+            className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0"
             initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img 
-              src="/profile.jpg" // IMPORTANT: Make sure your image is in the `public` folder
-              alt="Your Name" 
+              src="/profile.jpg" // Points to the image in your `public` folder
+              alt="Aditya Choudhary" 
               className="rounded-full w-full h-full object-cover shadow-lg"
             />
           </motion.div>
 
-          {/* Bio Text */}
-          <motion.div
-            className="w-full md:w-1/2 text-center md:text-left"
-            initial={{ x: 200, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
+          {/* Bio Text and Resume Button */}
+          <div className="w-full md:w-1/2 text-center md:text-left">
             <p className="text-lg leading-relaxed mb-4">
               Hello! I'm a passionate and dedicated full-stack developer with a love for creating beautiful and functional web applications. My journey in tech has been driven by a curiosity to learn and a desire to build things that make a difference.
             </p>
             <p className="text-lg leading-relaxed">
               I specialize in the MERN stack (MongoDB, Express.js, React.js, Node.js) and I'm always eager to explore new technologies to expand my skillset.
             </p>
-          </motion.div>
+            
+            {/* --- Resume Button --- */}
+            <motion.a
+              href="/resume.pdf"
+              download="Aditya-Choudhary-Resume.pdf"
+              className="mt-6 inline-flex items-center justify-center px-8 py-4 font-semibold text-white rounded-lg shadow-lg transition-all duration-300"
+              style={{ backgroundColor: 'var(--accent-color)' }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FiDownload className="mr-3 text-2xl" />
+              Download Resume
+            </motion.a>
+          </div>
         </div>
 
         {/* --- Skills Section --- */}
         <div>
             <h2 className="text-3xl font-semibold text-center mb-8">My Skills</h2>
-            <motion.div 
-                className="flex flex-wrap justify-center gap-4 md:gap-6"
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-            >
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
               {skills.map((skill, index) => (
-                <div key={index} className="flex flex-col items-center justify-center p-4 bg-gray-200 dark:bg-slate-800 rounded-lg shadow-md w-32 h-32 text-center">
+                <motion.div 
+                    key={index} 
+                    className="flex flex-col items-center justify-center p-4 bg-gray-200 dark:bg-slate-800 rounded-lg shadow-md w-32 h-32 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
                    <div className="text-5xl mb-2">{skill.icon}</div>
                    <p className="font-semibold">{skill.name}</p>
-                </div>
+                </motion.div>
               ))}
-            </motion.div>
+            </div>
         </div>
-
       </motion.div>
     </div>
   );
