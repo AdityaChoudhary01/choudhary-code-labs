@@ -42,7 +42,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img 
-              src="/profile.jpg" // Points to the image in your `public` folder
+              src="/profile.jpg"
               alt="Aditya Choudhary" 
               className="rounded-full w-full h-full object-cover shadow-lg"
             />
@@ -51,13 +51,12 @@ const About = () => {
           {/* Bio Text and Resume Button */}
           <div className="w-full md:w-1/2 text-center md:text-left">
             <p className="text-lg leading-relaxed mb-4">
-              Hello! I'm a passionate and dedicated full-stack developer with a love for creating beautiful and functional web applications. My journey in tech has been driven by a curiosity to learn and a desire to build things that make a difference.
+              I'm a passionate Full-Stack Web Developer with a strong foundation in JavaScript, Data Structures and Algorithms (DSA) with Java, MERN Stack, and C++. I specialize in creating interactive, scalable, and high-performance web applications, focusing on clean UI, responsive design, and delivering seamless user experiences.
             </p>
             <p className="text-lg leading-relaxed">
-              I specialize in the MERN stack (MongoDB, Express.js, React.js, Node.js) and I'm always eager to explore new technologies to expand my skillset.
+              With a problem-solving mindset and a dedication to continuous learning, I strive to build solutions that make an impact. I love creating colorful, playful user experiences and writing clean backend code. My expertise includes React, Node/Express, MongoDB, and creative UI/UX design!
             </p>
             
-            {/* --- Resume Button --- */}
             <motion.a
               href="/resume.pdf"
               download="Aditya-Choudhary-Resume.pdf"
