@@ -81,63 +81,39 @@ const projects = [
   }
 ];
 
-const allTags = ["All", ...Array.from(new Set(projects.flatMap(p => p.tags)))];
-
-export default function Projects() {
-  const [selectedTag, setSelectedTag] = useState("All");
-  const filtered = selectedTag === "All"
-    ? projects
-    : projects.filter(p => p.tags.includes(selectedTag));
-
-  return (
-    <section className="py-16">
-      <h2 className="text-3xl font-bold text-center mb-10 text-indigo-700 dark:text-indigo-300">Projects</h2>
-      <div className="flex justify-center gap-4 mb-8 flex-wrap">
-        {allTags.map(tag => (
-          <button
-            key={tag}
-            className={`px-4 py-2 rounded-full font-bold mb-2 ${selectedTag === tag ? "bg-pink-600 text-white" : "bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-200"}`}
-            onClick={() => setSelectedTag(tag)}
-          >
-            {tag}
-          </button>
-        ))}
-      </div>
-      <div className="grid gap-8 md:grid-cols-2">
-        {filtered.map((project, idx) => (
-          <motion.div
-            key={idx}
-            className="bg-glass dark:bg-glassDark backdrop-blur-md rounded-2xl shadow-xl p-6 hover:scale-105 transition relative"
-            whileHover={{ scale: 1.05, boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)" }}
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="rounded-xl mb-4 w-full h-40 object-cover"
-            />
-            <h3 className="text-xl font-semibold mb-2 text-indigo-700 dark:text-indigo-200">{project.title}</h3>
-            <p className="mb-4 text-slate-700 dark:text-slate-200">{project.description}</p>
-            <div className="mb-2">
-              {project.tags.map((tag, i) => (
-                <span
-                  key={i}
-                  className="inline-block bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-200 rounded-full px-3 py-1 text-xs font-bold mr-2 mb-2"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-pink-600 font-bold hover:underline"
+     const Projects = () => {
+    return (
+        <div className="container mx-auto px-4 py-16">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
             >
-              View Project
-            </a>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-}
+                <h1 className="text-4xl font-bold text-center mb-12">My Projects</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project, idx) => (
+                        <motion.div
+                            key={idx}
+                            className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden"
+                            whileHover={{
+                                scale: 1.05,
+                                y: -10,
+                                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                            }}
+                            transition={{ type: 'spring', stiffness: 300 }}
+                        >
+                            <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                            <div className="p-6">
+                                <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+                                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                                <a href={project.link} className="text-blue-500 hover:underline">View Project</a>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.div>
+        </div>
+    );
+};
+
+export default Projects;
