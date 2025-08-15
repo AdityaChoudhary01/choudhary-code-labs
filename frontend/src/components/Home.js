@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiDownload } from 'react-icons/fi';
 
 // Import the sections to be displayed
 import About from './About';
@@ -26,17 +25,6 @@ const Home = () => {
                         A passionate Full Stack Developer specializing in creating beautiful, functional, and user-friendly web applications.
                     </p>
                     
-                    <motion.a
-                        href="/resume.pdf"
-                        download="Aditya-Choudhary-Resume.pdf"
-                        className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white rounded-lg shadow-lg transition-all duration-300"
-                        style={{ backgroundColor: 'var(--accent-color)' }}
-                        whileHover={{ scale: 1.05, y: -5 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <FiDownload className="mr-3 text-2xl" />
-                        Download Resume
-                    </motion.a>
                 </motion.div>
             </div>
 
