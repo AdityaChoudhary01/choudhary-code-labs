@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Canvas } from '@react-three-fiber';
-import { Stars } from '@react-three-drei';
+import { Canvas } from '@react-three/fiber';
+import { Stars } from '@react-three/drei';
 
 // Core sections
 import Navbar from './components/Navbar';
