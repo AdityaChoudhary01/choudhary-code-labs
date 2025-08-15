@@ -26,7 +26,7 @@ const Contact = () => {
         setIsSuccess(false);
 
         try {
-            const response = await axios.post('/api/contact', formData);
+            const response = await axios.post('https://portfolio3-cj9i.onrender.com/api/contact', formData);
 
             if (response.data.success) {
                 setResponseMsg('Message sent successfully! I will get back to you soon.');
