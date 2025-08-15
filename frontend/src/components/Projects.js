@@ -80,35 +80,50 @@ const projects = [
     tags: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "JWT", "Cloudinary", "Axios", "React Hot Toast"]
   }
 ];
-
-   const Projects = () => {
-    // ... projects array
+const Projects = () => {
     return (
-        <div className="container mx-auto px-4 py-16">
-            <h1 className="text-4xl font-bold text-center mb-12">My Projects</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, idx) => (
-                    <motion.div
-                        key={idx}
-                        className="glass-card overflow-hidden" // <-- APPLY THE NEW CLASS HERE
-                        whileHover={{
-                            scale: 1.05,
-                            y: -10,
-                            boxShadow: "0 20px 40px -5px var(--shadow-color)"
-                        }}
-                        transition={{ type: 'spring', stiffness: 300 }}
-                    >
-                        <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-                        <div className="p-6">
-                            <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-                            <p className="mb-4">{project.description}</p>
-                            <a href={project.link} style={{color: 'var(--accent-color)'}} className="font-semibold hover:underline">View Project</a>
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
+        <div className="container mx-auto px-4 py-16 min-h-screen">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">My Projects</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project, idx) => (
+                        <motion.div
+                            key={idx}
+                            className="glass-card overflow-hidden" // Applies our custom glassmorphism style
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: idx * 0.2 }}
+                            whileHover={{
+                                scale: 1.05,
+                                y: -10,
+                                boxShadow: "0 20px 40px -5px var(--shadow-color)"
+                            }}
+                        >
+                            <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                            <div className="p-6">
+                                <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+                                <p className="mb-4 text-base">{project.description}</p>
+                                <a 
+                                    href={project.link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    style={{color: 'var(--accent-color)'}} 
+                                    className="font-semibold hover:underline"
+                                >
+                                    View Project
+                                </a>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.div>
         </div>
     );
 };
 
 export default Projects;
+  
