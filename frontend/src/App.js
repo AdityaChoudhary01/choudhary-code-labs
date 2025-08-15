@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Canvas } from '@react-three/fiber';
+import { Stars } from '@react-three/drei';
 
 // Core sections
 import Navbar from './components/Navbar';
@@ -7,10 +9,13 @@ import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-// Optional: import Footer from './components/Footer';
+import Preloader from './components/Preloader'; // It's good practice to have a preloader
 
 function App() {
-  const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark');
+  const [dark, setDark] = useState(() => {
+    const theme = localStorage.getItem('theme');
+    return theme === 'dark';
+  });
 
   useEffect(() => {
     if (dark) {
@@ -24,26 +29,28 @@ function App() {
 
   return (
     <Router>
-      <div className={`min-h-screen ${dark ? 'bg-slate-900' : 'bg-gradient-to-br from-indigo-300 to-pink-200'} transition`}>
-        <Navbar dark={dark} setDark={setDark} />
+      <div className={`min-h-screen ${dark ? 'bg-slate-900 text-white' : 'bg-gray-100 text-black'} transition-colors duration-500`}>
+        {/* 3D Background */}
+        <div className="absolute top-0 left-0 w-full h-full z-0">
+          <Canvas>
+            <Suspense fallback={<Preloader />}>
+              <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade />
+            </Suspense>
+          </Canvas>
+        </div>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-
-        {/* WhatsApp Chat Widget */}
-        <a
-          href="https://wa.me/8527633416"
-          className="fixed bottom-8 right-8 bg-green-500 p-3 rounded-full shadow-lg text-white text-2xl z-50"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Chat on WhatsApp"
-        >
-          💬
-        </a>
+        {/* Content */}
+        <div className="relative z-10">
+          <Navbar dark={dark} setDark={setDark} />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+        </div>
       </div>
     </Router>
   );
