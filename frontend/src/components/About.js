@@ -41,7 +41,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img 
-              src="/profile-pic.png" // IMPORTANT: Make sure your image is in the `public` folder
+              src="/profile.jpg" // IMPORTANT: Make sure your image is in the `public` folder
               alt="Your Name" 
               className="rounded-full w-full h-full object-cover shadow-lg"
             />
