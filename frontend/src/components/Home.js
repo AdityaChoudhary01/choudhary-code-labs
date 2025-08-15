@@ -8,8 +8,8 @@ import Contact from './Contact';
 
 const Home = () => {
     return (
-        // The main container for all sections
-        <div className="pt-24 md:pt-32 px-4 md:px-8 space-y-20 md:space-y-32">
+        // The main container for all sections - reduced vertical spacing here
+        <div className="pt-24 md:pt-32 px-4 md:px-8 space-y-16 md:space-y-24">
             
             {/* --- Hero Section --- */}
             <div className="container mx-auto px-4 flex items-center justify-center text-center min-h-[calc(100vh-8rem)]">
