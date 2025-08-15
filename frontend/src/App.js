@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Canvas } from '@react-three/fiber';
-import { Stars } from '@react-three/drei';
+import { Canvas } from '@react-three-fiber';
+import { Stars } from '@react-three-drei';
 
 // Core sections
 import Navbar from './components/Navbar';
@@ -9,7 +9,8 @@ import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Preloader from './components/Preloader'; // It's good practice to have a preloader
+import Preloader from './components/Preloader';
+import FloatingContactButton from './components/FloatingContactButton'; 
 
 function App() {
   const [dark, setDark] = useState(() => {
@@ -38,6 +39,7 @@ function App() {
             </Suspense>
           </Canvas>
         </div>
+        <FloatingContactButton /> 
 
         {/* Content */}
         <div className="relative z-10">
