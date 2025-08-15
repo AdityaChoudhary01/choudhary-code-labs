@@ -81,37 +81,32 @@ const projects = [
   }
 ];
 
-     const Projects = () => {
+   const Projects = () => {
+    // ... projects array
     return (
         <div className="container mx-auto px-4 py-16">
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-            >
-                <h1 className="text-4xl font-bold text-center mb-12">My Projects</h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, idx) => (
-                        <motion.div
-                            key={idx}
-                            className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden"
-                            whileHover={{
-                                scale: 1.05,
-                                y: -10,
-                                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-                            }}
-                            transition={{ type: 'spring', stiffness: 300 }}
-                        >
-                            <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-                            <div className="p-6">
-                                <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-                                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                                <a href={project.link} className="text-blue-500 hover:underline">View Project</a>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </motion.div>
+            <h1 className="text-4xl font-bold text-center mb-12">My Projects</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projects.map((project, idx) => (
+                    <motion.div
+                        key={idx}
+                        className="glass-card overflow-hidden" // <-- APPLY THE NEW CLASS HERE
+                        whileHover={{
+                            scale: 1.05,
+                            y: -10,
+                            boxShadow: "0 20px 40px -5px var(--shadow-color)"
+                        }}
+                        transition={{ type: 'spring', stiffness: 300 }}
+                    >
+                        <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                        <div className="p-6">
+                            <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+                            <p className="mb-4">{project.description}</p>
+                            <a href={project.link} style={{color: 'var(--accent-color)'}} className="font-semibold hover:underline">View Project</a>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
         </div>
     );
 };
