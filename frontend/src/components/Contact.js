@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
-import { FiMail, FiCheckCircle, FiPhone, FiMapPin } from 'react-icons/fi';
+import { FiMail, FiCheckCircle, FiPhone, FiMapPin, FiLoader } from 'react-icons/fi';
 import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 
 const Contact = () => {
@@ -55,6 +55,16 @@ const Contact = () => {
         } finally {
             setLoading(false);
         }
+    };
+
+    const formVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } }
+    };
+
+    const fieldVariants = {
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0 }
     };
 
     return (
@@ -117,44 +127,66 @@ const Contact = () => {
                     {/* Right Side: Form */}
                     <div className="w-full md:w-1/2 p-8 md:p-12">
                         <h2 className="text-3xl font-bold text-center mb-8">Send Me a Message</h2>
-                        {isSuccess ? (
-                            <div className="text-center p-4 rounded-lg bg-green-500/20 text-green-500">
-                                <FiCheckCircle className="mx-auto text-4xl mb-2" />
-                                <p>{responseMsg}</p>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit}>
-                                <div className="mb-6">
-                                    <label htmlFor="name" className="block mb-2 text-sm font-medium">Your Name</label>
-                                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="w-full p-3 bg-white/50 dark:bg-slate-800/50 border border-white/20 rounded-lg focus:ring-2 focus:ring-[var(--accent-color)] outline-none transition" required />
-                                </div>
-                                <div className="mb-6">
-                                    <label htmlFor="email" className="block mb-2 text-sm font-medium">Your Email</label>
-                                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="w-full p-3 bg-white/50 dark:bg-slate-800/50 border border-white/20 rounded-lg focus:ring-2 focus:ring-[var(--accent-color)] outline-none transition" required />
-                                </div>
-                                <div className="mb-6">
-                                    <label htmlFor="message" className="block mb-2 text-sm font-medium">Your Message</label>
-                                    <textarea id="message" name="message" rows="5" value={formData.message} onChange={handleChange} className="w-full p-3 bg-white/50 dark:bg-slate-800/50 border border-white/20 rounded-lg focus:ring-2 focus:ring-[var(--accent-color)] outline-none transition" required></textarea>
-                                </div>
-
-                                {responseMsg && !isSuccess && (
-                                    <p className={`text-center mb-4 ${isError ? 'text-red-500' : 'text-green-500'}`}>
-                                        {responseMsg}
-                                    </p>
-                                )}
-
-                                <motion.button
-                                    type="submit"
-                                    disabled={loading}
-                                    style={{ backgroundColor: 'var(--accent-color)' }}
-                                    className="w-full text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50"
-                                    whileHover={{ scale: loading ? 1 : 1.05 }}
-                                    whileTap={{ scale: loading ? 1 : 0.95 }}
+                        <AnimatePresence>
+                            {isSuccess ? (
+                                <motion.div
+                                    key="success"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    className="text-center p-4 rounded-lg bg-green-500/20 text-green-500"
                                 >
-                                    {loading ? 'Sending...' : 'Send Message'}
-                                </motion.button>
-                            </form>
-                        )}
+                                    <FiCheckCircle className="mx-auto text-4xl mb-2" />
+                                    <p>{responseMsg}</p>
+                                </motion.div>
+                            ) : (
+                                <motion.form
+                                    key="form"
+                                    variants={formVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    onSubmit={handleSubmit}
+                                >
+                                    <motion.div variants={fieldVariants} className="mb-6 relative">
+                                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="peer w-full p-3 bg-white/50 dark:bg-slate-800/50 border border-white/20 rounded-lg focus:ring-2 focus:ring-[var(--accent-color)] outline-none transition placeholder-transparent" required placeholder="Your Name" />
+                                        <label htmlFor="name" className="absolute left-3 -top-2.5 text-sm text-slate-600 dark:text-slate-300 bg-[var(--bg-color)] px-1 transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-[var(--accent-color)]">Your Name</label>
+                                    </motion.div>
+                                    <motion.div variants={fieldVariants} className="mb-6 relative">
+                                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="peer w-full p-3 bg-white/50 dark:bg-slate-800/50 border border-white/20 rounded-lg focus:ring-2 focus:ring-[var(--accent-color)] outline-none transition placeholder-transparent" required placeholder="Your Email" />
+                                        <label htmlFor="email" className="absolute left-3 -top-2.5 text-sm text-slate-600 dark:text-slate-300 bg-[var(--bg-color)] px-1 transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-[var(--accent-color)]">Your Email</label>
+                                    </motion.div>
+                                    <motion.div variants={fieldVariants} className="mb-6 relative">
+                                        <textarea id="message" name="message" rows="5" value={formData.message} onChange={handleChange} className="peer w-full p-3 bg-white/50 dark:bg-slate-800/50 border border-white/20 rounded-lg focus:ring-2 focus:ring-[var(--accent-color)] outline-none transition placeholder-transparent" required placeholder="Your Message"></textarea>
+                                        <label htmlFor="message" className="absolute left-3 -top-2.5 text-sm text-slate-600 dark:text-slate-300 bg-[var(--bg-color)] px-1 transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-[var(--accent-color)]">Your Message</label>
+                                    </motion.div>
+
+                                    {responseMsg && !isSuccess && (
+                                        <p className={`text-center mb-4 ${isError ? 'text-red-500' : 'text-green-500'}`}>
+                                            {responseMsg}
+                                        </p>
+                                    )}
+
+                                    <motion.button
+                                        variants={fieldVariants}
+                                        type="submit"
+                                        disabled={loading}
+                                        style={{ backgroundColor: 'var(--accent-color)' }}
+                                        className="w-full flex items-center justify-center text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50"
+                                        whileHover={{ scale: loading ? 1 : 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.2)" }}
+                                        whileTap={{ scale: loading ? 1 : 0.95 }}
+                                    >
+                                        {loading ? (
+                                            <>
+                                                <FiLoader className="animate-spin mr-2" />
+                                                Sending...
+                                            </>
+                                        ) : (
+                                            'Send Message'
+                                        )}
+                                    </motion.button>
+                                </motion.form>
+                            )}
+                        </AnimatePresence>
                     </div>
                 </div>
             </motion.div>
