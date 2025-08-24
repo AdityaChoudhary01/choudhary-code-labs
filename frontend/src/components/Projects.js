@@ -93,7 +93,11 @@ const Projects = () => {
                             whileHover={{
                                 scale: 1.05,
                                 y: -10,
-                                boxShadow: "0 20px 40px -5px var(--shadow-color)"
+                                boxShadow: "0 20px 40px -5px var(--shadow-color)",
+                              transition: {
+      duration: 0.2, // Faster hover response
+      ease: "easeOut" // Smooth deceleration
+    }
                             }}
                         >
                             <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
