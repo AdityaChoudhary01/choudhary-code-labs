@@ -42,9 +42,9 @@ const skills = [
 
 const Home = () => {
   return (
-    <div className="space-y-12 md:space-y-20">
+    <div className="space-y-16 md:space-y-24">
       {/* --- Hero and About Section --- */}
-      <div id="home" className="px-4 md:px-16 pt-[84px] flex-col relative flex min-h-screen w-full items-center justify-center">
+      <div id="home" className="px-6 sm:px-8 md:px-16 pt-24 flex-col relative flex min-h-screen w-full items-center justify-center">
         <div className="flex flex-col md:flex-row items-center justify-center">
           {/* Left Side (Text) */}
           <motion.div
@@ -59,7 +59,7 @@ const Home = () => {
             <h2 className="text-2xl bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent md:text-3xl lg:text-4xl mt-3">
               Mern-Stack Web Developer | DSA Enthusiast | Problem Solver
             </h2>
-            <p className="mt-4 text-gray-500 text-[12px] sm:text-xs md:text-sm lg:text-base max-w-md sm:max-w-lg md:max-w-xl leading-tight sm:leading-normal">
+            <p className="mt-4 text-gray-500 text-sm md:text-base max-w-md sm:max-w-lg md:max-w-xl leading-tight sm:leading-normal">
               I'm a passionate Full-Stack Web Developer with a strong foundation in JavaScript, Data Structures and Algorithms (DSA) with Java, MERN Stack, and C++. I specialize in creating interactive, scalable, and high-performance web applications, focusing on clean UI, responsive design, and delivering seamless user experiences. With a problem-solving mindset and a dedication to continuous learning, I strive to build solutions that make an impact.
             </p>
             <div className="flex items-center justify-center md:justify-start space-x-4">
@@ -83,7 +83,7 @@ const Home = () => {
           </motion.div>
 
           {/* Right Side (Image) */}
-          <div className="mt-10 md:mt-0 md:ml-12 flex justify-center items-center">
+          <div className="mt-12 md:mt-0 md:ml-12 flex justify-center items-center">
             <motion.img
               src="/profile.jpg"
               alt="Aditya"
