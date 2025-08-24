@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { FiGithub } from 'react-icons/fi';
 
 const projects = [
+    {
+    title: "PeerNotez",
+    description: "An innovative food delivery platform connecting users with local restaurants to deliver delicious meals.",
+    link: "https://food-delivery-frontend-mo9e.onrender.com/",
+    image: "/images/yumride.png",
+    tags: ["React", "Node.js", "Express", "MongoDB"],
+    repo: "https://github.com/AdityaChoudhary01/YumRide"
+  },
   {
     title: "YumRide",
     description: "An innovative food delivery platform connecting users with local restaurants to deliver delicious meals.",
