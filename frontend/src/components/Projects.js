@@ -28,7 +28,7 @@ const projects = [
     repo: "https://github.com/AdityaChoudhary01/QrCodeGenerator"
   },
   {
-    title: "Weather App",
+    title: "Aether Sense",
     description: "A dynamic weather application that fetches real-time weather data and displays it in an intuitive UI.",
     link: "https://adityachoudhary01.github.io/WeatherApp/",
     image: "/images/weather-app.png",
@@ -52,7 +52,7 @@ const projects = [
     repo: "https://github.com/AdityaChoudhary01/WifiQrCodeGenerator" // Please add correct repo link
   },
   {
-    title: "Portfolio Website",
+    title: "Portfolio Website 1",
     description: "A personal portfolio website showcasing projects, skills, and contact information.",
     link: "#",
     image: "/images/portfolio-website.png",
@@ -60,7 +60,7 @@ const projects = [
     repo: "https://github.com/AdityaChoudhary01/portfolio3"
   },
   {
-    title: "Expense Tracker",
+    title: "KhataBook",
     description: "An application to manage finances by recording income and expenses, with visualizations.",
     link: "https://khatabook-qcb9.onrender.com",
     image: "/images/expense-tracker.png",
@@ -78,7 +78,7 @@ const projects = [
   {
     title: "Chatty",
     description: "A full-stack real-time chat application with user authentication, messaging, and responsive design.",
-    link: "", // No live link
+    link: "",
     image: "/images/Chatty.png",
     tags: ["React", "Node.js", "MongoDB", "JWT"],
     repo: "https://github.com/AdityaChoudhary01/Chatty"
