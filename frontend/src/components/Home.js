@@ -1,7 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava, FaPython } from 'react-icons/fa';
-import { SiExpress, SiMongodb, SiTailwindcss, SiCplusplus } from 'react-icons/si';
+import { 
+    FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava, FaPython, 
+    FaBootstrap, FaAws, FaGithub, FaCode, FaSitemap, FaServer 
+} from 'react-icons/fa';
+import { 
+    SiExpress, SiMongodb, SiTailwindcss, SiMysql, SiRedux, SiFirebase, 
+    SiExpo, SiCloudinary 
+} from 'react-icons/si';
 import { FiDownload } from 'react-icons/fi';
 import Projects from './Projects';
 import Contact from './Contact';
@@ -11,16 +17,27 @@ import ScrollIndicator from './ScrollIndicator';
 const skills = [
     { name: 'JavaScript', icon: <FaJs className="text-yellow-400" /> },
     { name: 'React.js', icon: <FaReact className="text-blue-400" /> },
+    { name: 'React Native', icon: <FaReact className="text-blue-400" /> },
+    { name: 'Redux', icon: <SiRedux className="text-purple-500" /> },
     { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
     { name: 'Express.js', icon: <SiExpress className="text-gray-400 dark:text-white" /> },
     { name: 'MongoDB', icon: <SiMongodb className="text-green-600" /> },
+    { name: 'MySQL', icon: <SiMysql className="text-blue-500" /> },
     { name: 'HTML5', icon: <FaHtml5 className="text-orange-500" /> },
     { name: 'CSS3', icon: <FaCss3Alt className="text-blue-500" /> },
+    { name: 'Bootstrap', icon: <FaBootstrap className="text-purple-600" /> },
     { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
     { name: 'Git', icon: <FaGitAlt className="text-red-500" /> },
+    { name: 'GitHub', icon: <FaGithub className="text-gray-800 dark:text-white" /> },
     { name: 'Java', icon: <FaJava className="text-red-400" /> },
     { name: 'Python', icon: <FaPython className="text-blue-300" /> },
-    { name: 'C++', icon: <SiCplusplus className="text-blue-600" /> },
+    { name: 'C', icon: <FaCode className="text-gray-500" /> },
+    { name: 'DSA', icon: <FaSitemap className="text-indigo-500" /> },
+    { name: 'REST API', icon: <FaServer className="text-yellow-600" /> },
+    { name: 'AWS', icon: <FaAws className="text-orange-500" /> },
+    { name: 'Cloudinary', icon: <SiCloudinary className="text-blue-600" /> },
+    { name: 'Firebase', icon: <SiFirebase className="text-yellow-500" /> },
+    { name: 'Expo', icon: <SiExpo className="text-gray-800 dark:text-white" /> },
 ];
 
 const Home = () => {
@@ -47,7 +64,6 @@ const Home = () => {
             </p>
             <div className="flex items-center justify-center md:justify-start space-x-4">
               <a href="#contact">
-                {/* FIX: Changed text color to be visible in light/dark modes */}
                 <button className="mt-6 cursor-pointer border border-blue-800 px-7 py-3 sm:px-8 sm:py-3 bg-transparent text-slate-800 dark:text-white rounded-xl shadow-sm shadow-blue-600 hover:shadow-purple-800 transition-all duration-300 transform text-xs sm:text-sm md:text-base">
                   Contact Me
                 </button>
