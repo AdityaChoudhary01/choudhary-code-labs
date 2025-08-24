@@ -6,7 +6,6 @@ export default function Navbar({ dark, setDark }) {
 
   const navLinks = [
     { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
     { to: "/projects", label: "Projects" },
     { to: "/contact", label: "Contact" }
   ];
