@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// FIX: Import HashLink to enable smooth scrolling
+import { HashLink as Link } from 'react-router-hash-link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowUp, FiMessageSquare } from 'react-icons/fi';
 
@@ -56,8 +57,10 @@ const FloatingButtons = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
             >
+                {/* FIX: Use HashLink for smooth scrolling */}
                 <Link
                     to="/#contact"
+                    smooth
                     className="flex items-center justify-center w-16 h-16 bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-300"
                     aria-label="Contact Me"
                 >
