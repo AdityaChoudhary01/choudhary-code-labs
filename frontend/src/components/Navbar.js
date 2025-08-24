@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 export default function Navbar({ dark, setDark }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Use HashLink for smooth scrolling to sections on the same page
   const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/projects", label: "Projects" },
-    { to: "/contact", label: "Contact" }
+    { to: "/#home", label: "Home" },
+    { to: "/#skills", label: "Skills" },
+    { to: "/#projects", label: "Projects" },
+    { to: "/#contact", label: "Contact" }
   ];
 
   return (
@@ -19,18 +22,15 @@ export default function Navbar({ dark, setDark }) {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-2">
           {navLinks.map(link => (
-            <NavLink
+            <HashLink
               key={link.to}
               to={link.to}
-              className={({ isActive }) =>
-                isActive
-                  ? "mx-2 font-bold text-pink-600"
-                  : "mx-2 text-slate-700 dark:text-slate-200 hover:text-indigo-600"
-              }
+              smooth
+              className="mx-2 text-slate-700 dark:text-slate-200 hover:text-indigo-600"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </NavLink>
+            </HashLink>
           ))}
           <button
             className="ml-4 px-2 py-1 rounded bg-indigo-100 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300"
@@ -63,18 +63,15 @@ export default function Navbar({ dark, setDark }) {
       >
         <div className="flex flex-col items-center space-y-2">
           {navLinks.map(link => (
-            <NavLink
+            <HashLink
               key={link.to}
               to={link.to}
-              className={({ isActive }) =>
-                isActive
-                  ? "block font-bold text-pink-600 py-2"
-                  : "block text-slate-700 dark:text-slate-200 hover:text-indigo-600 py-2"
-              }
+              smooth
+              className="block text-slate-700 dark:text-slate-200 hover:text-indigo-600 py-2"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </NavLink>
+            </HashLink>
           ))}
           <button
             className="mt-2 px-2 py-1 rounded bg-indigo-100 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300"
