@@ -76,11 +76,19 @@ const projects = [
     repo: "https://github.com/AdityaChoudhary01/WifiQrCodeGenerator" // Please add correct repo link
   },
   {
-    title: "Portfolio Website 1",
+    title: "Choudhary Code Labs",
     description: "A personal portfolio website showcasing projects, skills, and contact information.",
-    link: "#",
-    image: "/images/portfolio-website.png",
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    link: "https://choudharycodelabs.netlify.app/",
+    image: "/images/portfolio.png",
+    tags: ["React", "Tailwind CSS", "Framer Motion","NodeMailer"],
+    repo: "https://github.com/AdityaChoudhary01/portfolio3"
+  },
+      {
+    title: "FolioForge",
+    description: "A personal portfolio website showcasing projects, skills, and contact information.",
+    link: "https://folioforge.vercel.app/",
+    image: "/images/Folioforge.png",
+    tags: ["MongoDb","React","Firebase","Express","NodeJs","Gemini Ai Integration", "Tailwind CSS", "Framer Motion"],
     repo: "https://github.com/AdityaChoudhary01/portfolio3"
   },
   {
