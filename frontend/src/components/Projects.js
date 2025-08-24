@@ -5,35 +5,35 @@ const projects = [
   {
     title: "YumRide",
     description: "An innovative food delivery platform connecting users with local restaurants to deliver delicious meals.",
-    link: "https://your-yumride-link.com",
+    link: "https://food-delivery-frontend-mo9e.onrender.com/",
     image: "/images/yumride.png", // Local image
     tags: ["JavaScript", "React", "Node.js", "Express", "MongoDB"]
   },
   {
     title: "QR Generator",
     description: "A QR code generator that allows users to create custom QR codes for text, URLs, or contact information.",
-    link: "https://your-qr-generator-link.com",
+    link: "https://adityachoudhary01.github.io/QrCodeGenerator/",
     image: "/images/qr-generator.png", // Local image
     tags: ["JavaScript", "REST API", "QRCode", "HTML", "CSS"]
   },
   {
     title: "Weather App",
     description: "A dynamic weather application that fetches real-time weather data and displays it in an intuitive UI.",
-    link: "https://your-weather-app-link.com",
+    link: "https://adityachoudhary01.github.io/WeatherApp/",
     image: "/images/weather-app.png", // Local image
     tags: ["JavaScript", "HTML", "CSS", "REST API"]
   },
   {
     title: "aktuwrld",
     description: "A study platform for AKTU students providing resources, notes, and previous year question papers.",
-    link: "https://your-aktuwrld-link.com",
+    link: "https://aktuwrld.netlify.app/",
     image: "/images/aktuwrld.png", // Local image
     tags: ["JavaScript", "HTML", "CSS"]
   },
   {
     title: "Wifi QR Code Generator",
     description: "A tool to generate QR codes for Wi-Fi networks, simplifying the process of sharing Wi-Fi credentials.",
-    link: "https://your-wifi-qr-code-link.com",
+    link: "https://adityachoudhary01.github.io/WifiQrCodeGenerator/",
     image: "/images/wifi-qr-code-generator.png", // Local image
     tags: ["JavaScript", "HTML", "CSS", "REST API"]
   },
@@ -51,31 +51,24 @@ const projects = [
     image: "/images/portfolio.png", // Local image
     tags: ["React", "Tailwind CSS", "JavaScript"]
   },
-    {
-    title: "Portfolio Website 3",
-    description: "A personal portfolio website showcasing projects, skills, and contact information.",
-    link: "https://your-portfolio-link.com",
-    image: "/images/portfolio.png", // Local image
-    tags: ["React", "Tailwind CSS", "JavaScript"]
-  },
   {
     title: "Expense Tracker",
     description: "An application to manage finances by recording income and expenses, with visualizations and budgeting features.",
-    link: "https://your-expense-tracker-link.com",
+    link: "https://khatabook-qcb9.onrender.com",
     image: "/images/expense-tracker.png", // Local image
     tags: ["React", "Node.js", "Express", "MongoDB"]
   },
   {
     title: "JAT Universal",
     description: "A comprehensive platform offering e-commerce, logistics, and customer support services.",
-    link: "https://your-jat-universal-link.com",
+    link: "https://jatuniversal-history.netlify.app/",
     image: "/images/jat-universal.png", // Local image
     tags: ["HTML", "CSS"]
   },
   {
     title: "Chatty",
     description: "A full-stack real-time chat application with user authentication, real-time messaging, and responsive design.",
-    link: "https://your-chatty-link.com",
+    link: "",
     image: "/images/chatty.png", // Local image
     tags: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "JWT", "Cloudinary", "Axios", "React Hot Toast"]
   }
