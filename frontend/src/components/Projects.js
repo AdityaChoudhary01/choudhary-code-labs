@@ -76,12 +76,12 @@ const projects = [
     repo: "https://github.com/AdityaChoudhary01/JAT-Universal" // Please add correct repo link
   },
   {
-    title: "Chatty",
+    title: "PingNest",
     description: "A full-stack real-time chat application with user authentication, messaging, and responsive design.",
-    link: "",
+    link: "https://pingnest.netlify.app/login",
     image: "/images/Chatty.png",
     tags: ["React", "Node.js", "MongoDB", "JWT"],
-    repo: "https://github.com/AdityaChoudhary01/Chatty"
+    repo: "https://github.com/AdityaChoudhary01/PingNest"
   }
 ];
 
