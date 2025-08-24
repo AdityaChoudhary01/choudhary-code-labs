@@ -11,6 +11,30 @@ const projects = [
     tags: ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt"],
     repo: "https://github.com/AdityaChoudhary01/public-peernotez"
   },
+        {
+    title: "JatPedia",
+    description: "JatPedia is a community-driven initiative to document, preserve, and celebrate the rich history, culture, and heritage of the Jat community for future generations.",
+    link: "https://jatpedia.netlify.app/",
+    image: "/images/jatpedia.png",
+    tags: ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt","Gemini Ai","Firebase","SEO Ready"],
+    repo: "https://github.com/AdityaChoudhary01/public-jatpedia"
+  },
+      {
+    title: "PingNest",
+    description: "A full-stack real-time chat application with user authentication, messaging, and responsive design.",
+    link: "https://pingnest.netlify.app/login",
+    image: "/images/Chatty.png",
+    tags: ["React", "Node.js", "MongoDB", "JWT"],
+    repo: "https://github.com/AdityaChoudhary01/PingNest"
+  },
+      {
+    title: "AuravoAi",
+    description: "Auravo AI is a cutting-edge chat application designed to provide intelligent, helpful, and engaging conversations. Our mission is to push the boundaries of artificial intelligence to create a seamless and intuitive user experience.",
+    link: "https://auravoai.vercel.app/",
+    image: "/images/auravoai.png",
+    tags:  ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt","Gemini Ai","Firebase","SEO Ready"],
+    repo: "https://github.com/AdityaChoudhary01/PingNest"
+  },
   {
     title: "YumRide",
     description: "An innovative food delivery platform connecting users with local restaurants to deliver delicious meals.",
@@ -75,14 +99,6 @@ const projects = [
     tags: ["HTML", "CSS"],
     repo: "https://github.com/AdityaChoudhary01/JAT-Universal" // Please add correct repo link
   },
-  {
-    title: "PingNest",
-    description: "A full-stack real-time chat application with user authentication, messaging, and responsive design.",
-    link: "https://pingnest.netlify.app/login",
-    image: "/images/Chatty.png",
-    tags: ["React", "Node.js", "MongoDB", "JWT"],
-    repo: "https://github.com/AdityaChoudhary01/PingNest"
-  }
 ];
 
 const Projects = () => {
