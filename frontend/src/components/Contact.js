@@ -17,7 +17,6 @@ const Contact = () => {
 
     const contactInfo = [
         { icon: <FiMail />, text: 'Adityanain55@gmail.com', href: 'mailto:Adityanain55@gmail.com' },
-        { icon: <FiPhone />, text: '+91 7983183416', href: 'tel:+917983183416' },
         { icon: <FiMapPin />, text: 'Greater Noida, India' },
     ];
 
