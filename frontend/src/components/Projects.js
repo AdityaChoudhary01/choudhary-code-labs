@@ -5,11 +5,11 @@ import { FiGithub } from 'react-icons/fi';
 const projects = [
     {
     title: "PeerNotez",
-    description: "An innovative food delivery platform connecting users with local restaurants to deliver delicious meals.",
-    link: "https://food-delivery-frontend-mo9e.onrender.com/",
-    image: "/images/yumride.png",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
-    repo: "https://github.com/AdityaChoudhary01/YumRide"
+    description: "PeerNotez is a collaborative platform dedicated to helping students learn and share knowledge freely",
+    link: "https://peernotez.netlify.app/",
+    image: "/images/peernotez.png",
+    tags: ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt"],
+    repo: "https://github.com/AdityaChoudhary01/public-peernotez"
   },
   {
     title: "YumRide",
