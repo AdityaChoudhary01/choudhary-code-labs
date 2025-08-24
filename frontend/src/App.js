@@ -9,9 +9,8 @@ import Home from './components/Home';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Preloader from './components/Preloader';
-import FloatingContactButton from './components/FloatingContactButton'; 
-import Footer from './components/Footer'; // Import Footer
-import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop
+import Footer from './components/Footer';
+import FloatingButtons from './components/FloatingButtons'; // Import the new component
 
 function App() {
   const [dark, setDark] = useState(() => {
@@ -42,8 +41,7 @@ function App() {
         </div>
         
         {/* Floating Buttons */}
-        <FloatingContactButton /> 
-        <ScrollToTop />
+        <FloatingButtons />
 
         {/* Content */}
         <div className="relative z-10">
