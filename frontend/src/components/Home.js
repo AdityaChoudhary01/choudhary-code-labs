@@ -24,99 +24,99 @@ const skills = [
 ];
 
 const Home = () => {
-    return (
-        <div className="pt-24 md:pt-32 px-4 md:px-8 space-y-12 md:space-y-20">
-
-            {/* --- Hero and About Section --- */}
-            <div id="home" className="container mx-auto px-4 min-h-screen">
-                <motion.div
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center"
-                >
-                    <h1 className="text-5xl md:text-7xl font-bold mb-4">
-                        Hey there! I'm Aditya Choudhary
-                    </h1>
-                    <h2 className="text-2xl bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent md:text-3xl lg:text-4xl mt-3">
-                        Mern-Stack Web Developer | DSA Enthusiast | Problem Solver
-                    </h2>
-                </motion.div>
-
-                <motion.div
-                    className="w-full mt-16"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mb-12">
-                        <motion.div
-                            className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0"
-                            initial={{ scale: 0, opacity: 0 }}
-                            whileInView={{ scale: 1, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                        >
-                            <img
-                                src="/profile.jpg"
-                                alt="Aditya Choudhary"
-                                className="rounded-full w-full h-full object-cover shadow-lg"
-                            />
-                        </motion.div>
-
-                        <div className="w-full md:w-1/2 text-center md:text-left">
-                            <p className="text-lg leading-relaxed mb-4">
-                                I'm a passionate Full-Stack Web Developer with a strong foundation in JavaScript, Data Structures and Algorithms (DSA) with Java, MERN Stack, and C++. I specialize in creating interactive, scalable, and high-performance web applications, focusing on clean UI, responsive design, and delivering seamless user experiences.
-                            </p>
-                            <p className="text-lg leading-relaxed">
-                                With a problem-solving mindset and a dedication to continuous learning, I strive to build solutions that make an impact. I love creating colorful, playful user experiences and writing clean backend code. My expertise includes React, Node/Express, MongoDB, and creative UI/UX design!
-                            </p>
-                            <motion.a
-                                href="/resume.pdf"
-                                download="Aditya-Choudhary-Resume.pdf"
-                                className="mt-6 inline-flex items-center justify-center px-8 py-4 font-semibold text-white rounded-lg shadow-lg transition-all duration-300"
-                                style={{ backgroundColor: 'var(--accent-color)' }}
-                                whileHover={{ scale: 1.05, y: -5 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <FiDownload className="mr-3 text-2xl" />
-                                Download Resume
-                            </motion.a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h2 className="text-3xl font-semibold text-center mb-8">My Skills</h2>
-                        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                            {skills.map((skill, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="flex flex-col items-center justify-center p-4 bg-gray-200 dark:bg-slate-800 rounded-lg shadow-md w-32 h-32 text-center"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                >
-                                    <div className="text-5xl mb-2">{skill.icon}</div>
-                                    <p className="font-semibold">{skill.name}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </motion.div>
-                <ScrollIndicator target="#projects" />
+  return (
+    <div className="space-y-12 md:space-y-20">
+      {/* --- Hero and About Section --- */}
+      <div id="home" className="px-4 md:px-16 pt-[84px] flex-col relative flex min-h-screen w-full items-center justify-center">
+        <div className="flex flex-col md:flex-row items-center justify-center">
+          {/* Left Side (Text) */}
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center md:text-left"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-400">
+              Aditya Choudhary
+            </h1>
+            <h2 className="text-2xl bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent md:text-3xl lg:text-4xl mt-3">
+              Mern-Stack Web Developer | DSA Enthusiast | Problem Solver
+            </h2>
+            <p className="mt-4 text-gray-500 text-[12px] sm:text-xs md:text-sm lg:text-base max-w-md sm:max-w-lg md:max-w-xl leading-tight sm:leading-normal">
+              I'm a passionate Full-Stack Web Developer with a strong foundation in JavaScript, Data Structures and Algorithms (DSA) with Java, MERN Stack, and C++. I specialize in creating interactive, scalable, and high-performance web applications, focusing on clean UI, responsive design, and delivering seamless user experiences. With a problem-solving mindset and a dedication to continuous learning, I strive to build solutions that make an impact.
+            </p>
+            <div className="flex items-center justify-center md:justify-start space-x-4">
+              <a href="#contact">
+                <button className="mt-6 cursor-pointer border border-blue-800 px-7 py-3 sm:px-8 sm:py-3 bg-transparent text-white rounded-xl shadow-sm shadow-blue-600 hover:shadow-purple-800 transition-all duration-300 transform text-xs sm:text-sm md:text-base">
+                  Contact Me
+                </button>
+              </a>
+              <motion.a
+                href="/resume.pdf"
+                download="Aditya-Choudhary-Resume.pdf"
+                className="mt-6 inline-flex items-center justify-center px-8 py-3 font-semibold text-white rounded-lg shadow-lg transition-all duration-300"
+                style={{ backgroundColor: 'var(--accent-color)' }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FiDownload className="mr-2 text-xl" />
+                Resume
+              </motion.a>
             </div>
+          </motion.div>
 
-            {/* --- Other Sections --- */}
-            <div id="projects">
-                <Projects />
-            </div>
-            <div id="contact">
-                <Contact />
-            </div>
+          {/* Right Side (Image) */}
+          <div className="mt-10 md:mt-0 md:ml-12 flex justify-center items-center">
+            <motion.img
+              src="/profile.jpg"
+              alt="Aditya"
+              className="w-60 h-60 md:w-80 md:h-80 object-cover rounded-full shadow-md hover:shadow-lg shadow-blue-600 hover:shadow-purple-800 transition-all duration-300 hover:scale-102"
+              style={{ objectPosition: "top" }}
+              animate={{
+                y: [0, -30, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            />
+          </div>
         </div>
-    );
+        <div>
+          <ScrollIndicator target="#skills" />
+        </div>
+      </div>
+
+      {/* --- Skills Section --- */}
+      <div id="skills" className="container mx-auto px-4">
+        <h2 className="text-3xl font-semibold text-center mb-8">My Skills</h2>
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center justify-center p-4 bg-gray-200 dark:bg-slate-800 rounded-lg shadow-md w-32 h-32 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="text-5xl mb-2">{skill.icon}</div>
+              <p className="font-semibold">{skill.name}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* --- Other Sections --- */}
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
+    </div>
+  );
 };
 
 export default Home;
