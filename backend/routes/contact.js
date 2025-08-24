@@ -33,9 +33,9 @@ app.post('/api/contact', async (req, res) => {
     const mailOptions = {
         from: `"${name}" <${email}>`,
         to: process.env.EMAIL_USER,
-        subject: `New Contact Form Submission from ${name}`,
+        subject: `New Choudhary Code Labs form Submission from ${name}`,
         html: `
-            <h2>New Message from your Portfolio Contact Form</h2>
+            <h2>New Message from your Choudhary Code Labs Portfolio Contact Form</h2>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Message:</strong></p>
