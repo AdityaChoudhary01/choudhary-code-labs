@@ -47,7 +47,8 @@ const Home = () => {
             </p>
             <div className="flex items-center justify-center md:justify-start space-x-4">
               <a href="#contact">
-                <button className="mt-6 cursor-pointer border border-blue-800 px-7 py-3 sm:px-8 sm:py-3 bg-transparent text-white rounded-xl shadow-sm shadow-blue-600 hover:shadow-purple-800 transition-all duration-300 transform text-xs sm:text-sm md:text-base">
+                {/* FIX: Changed text color to be visible in light/dark modes */}
+                <button className="mt-6 cursor-pointer border border-blue-800 px-7 py-3 sm:px-8 sm:py-3 bg-transparent text-slate-800 dark:text-white rounded-xl shadow-sm shadow-blue-600 hover:shadow-purple-800 transition-all duration-300 transform text-xs sm:text-sm md:text-base">
                   Contact Me
                 </button>
               </a>
