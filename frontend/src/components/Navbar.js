@@ -5,7 +5,6 @@ import { HashLink } from 'react-router-hash-link';
 export default function Navbar({ dark, setDark }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Use HashLink for smooth scrolling to sections on the same page
   const navLinks = [
     { to: "/#home", label: "Home" },
     { to: "/#skills", label: "Skills" },
@@ -14,10 +13,10 @@ export default function Navbar({ dark, setDark }) {
   ];
 
   return (
-    <nav className="fixed w-full z-20 top-0 left-0 bg-glass dark:bg-glassDark backdrop-blur-md shadow-lg">
+    <nav className="fixed w-full z-20 top-0 left-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-xl">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
         <NavLink to="/" className="font-extrabold text-2xl text-indigo-700 dark:text-indigo-300">
-          Choudhary Code Labs
+          ChoudharyCodeLabs
         </NavLink>
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-2">
@@ -26,7 +25,7 @@ export default function Navbar({ dark, setDark }) {
               key={link.to}
               to={link.to}
               smooth
-              className="mx-2 text-slate-700 dark:text-slate-200 hover:text-indigo-600"
+              className="mx-2 text-slate-700 dark:text-slate-200 hover:text-indigo-600 font-semibold transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -57,7 +56,7 @@ export default function Navbar({ dark, setDark }) {
       </div>
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-glass dark:bg-glassDark backdrop-blur-md transition-all duration-300 ease-in-out ${
+        className={`md:hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg transition-all duration-300 ease-in-out ${
           menuOpen ? "max-h-96 py-4 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
@@ -67,7 +66,7 @@ export default function Navbar({ dark, setDark }) {
               key={link.to}
               to={link.to}
               smooth
-              className="block text-slate-700 dark:text-slate-200 hover:text-indigo-600 py-2"
+              className="block text-slate-700 dark:text-slate-200 hover:text-indigo-600 py-2 font-semibold"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
