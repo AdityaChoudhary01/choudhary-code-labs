@@ -9,7 +9,7 @@ const projects = [
     link: "https://food-delivery-frontend-mo9e.onrender.com/",
     image: "/images/yumride.png",
     tags: ["React", "Node.js", "Express", "MongoDB"],
-    repo: "https://github.com/AdityaChoudhary01/YumRide" // Example
+    repo: "https://github.com/AdityaChoudhary01/YumRide"
   },
   {
     title: "QR Generator",
@@ -17,7 +17,7 @@ const projects = [
     link: "https://adityachoudhary01.github.io/QrCodeGenerator/",
     image: "/images/qr-generator.png",
     tags: ["JavaScript", "REST API", "HTML", "CSS"],
-    repo: "https://github.com/AdityaChoudhary01/QrCodeGenerator" // Example
+    repo: "https://github.com/AdityaChoudhary01/QrCodeGenerator"
   },
   {
     title: "Weather App",
@@ -25,7 +25,47 @@ const projects = [
     link: "https://adityachoudhary01.github.io/WeatherApp/",
     image: "/images/weather-app.png",
     tags: ["JavaScript", "HTML", "CSS", "API"],
-    repo: "https://github.com/AdityaChoudhary01/WeatherApp" // Example
+    repo: "https://github.com/AdityaChoudhary01/WeatherApp"
+  },
+  {
+    title: "aktuwrld",
+    description: "A study platform for AKTU students providing resources, notes, and previous year question papers.",
+    link: "https://aktuwrld.netlify.app/",
+    image: "/images/aktuwrld.png",
+    tags: ["JavaScript", "HTML", "CSS"],
+    repo: "https://github.com/AdityaChoudhary01/aktuwrld" // Please add correct repo link
+  },
+  {
+    title: "Wifi QR Code Generator",
+    description: "A tool to generate QR codes for Wi-Fi networks, simplifying the process of sharing Wi-Fi credentials.",
+    link: "https://adityachoudhary01.github.io/WifiQrCodeGenerator/",
+    image: "/images/wifi-qr-code-generator.png",
+    tags: ["JavaScript", "HTML", "CSS", "API"],
+    repo: "https://github.com/AdityaChoudhary01/WifiQrCodeGenerator" // Please add correct repo link
+  },
+  {
+    title: "Portfolio Website",
+    description: "A personal portfolio website showcasing projects, skills, and contact information.",
+    link: "#",
+    image: "/images/portfolio-website.png",
+    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    repo: "https://github.com/AdityaChoudhary01/portfolio3"
+  },
+  {
+    title: "Expense Tracker",
+    description: "An application to manage finances by recording income and expenses, with visualizations.",
+    link: "https://khatabook-qcb9.onrender.com",
+    image: "/images/expense-tracker.png",
+    tags: ["React", "Node.js", "Express", "MongoDB"],
+    repo: "https://github.com/AdityaChoudhary01/Expense-Tracker" // Please add correct repo link
+  },
+  {
+    title: "JAT Universal",
+    description: "A comprehensive platform offering e-commerce, logistics, and customer support services.",
+    link: "https://jatuniversal-history.netlify.app/",
+    image: "/images/jat-universal.png",
+    tags: ["HTML", "CSS"],
+    repo: "https://github.com/AdityaChoudhary01/JAT-Universal" // Please add correct repo link
   },
   {
     title: "Chatty",
@@ -33,22 +73,34 @@ const projects = [
     link: "", // No live link
     image: "/images/Chatty.png",
     tags: ["React", "Node.js", "MongoDB", "JWT"],
-    repo: "https://github.com/AdityaChoudhary01/Chatty" // Add your repo link here
-  },
-  // ... other projects
+    repo: "https://github.com/AdityaChoudhary01/Chatty"
+  }
 ];
 
 const Projects = () => {
     return (
         <div className="container mx-auto px-4 py-16 min-h-screen">
-            <motion.div /* ... */ >
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
                 <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">My Projects</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, idx) => (
                         <motion.div
                             key={idx}
                             className="glass-card overflow-hidden flex flex-col"
-                            /* ... */
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            whileHover={{
+                                scale: 1.05,
+                                y: -10,
+                                boxShadow: "0 20px 40px -5px var(--shadow-color)",
+                                transition: { duration: 0.2, ease: "easeOut" }
+                            }}
                         >
                             <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                             <div className="p-6 flex flex-col flex-grow">
