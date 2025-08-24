@@ -17,7 +17,7 @@ export default function Navbar({ dark, setDark }) {
     <nav className="fixed w-full z-20 top-0 left-0 bg-glass dark:bg-glassDark backdrop-blur-md shadow-lg">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
         <NavLink to="/" className="font-extrabold text-2xl text-indigo-700 dark:text-indigo-300">
-          MyPortfolio
+          Choudhary Code Labs
         </NavLink>
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-2">
