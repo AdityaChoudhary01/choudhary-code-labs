@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import { FiMail, FiCheckCircle } from 'react-icons/fi';
+import { FiMail, FiCheckCircle, FiPhone, FiMapPin } from 'react-icons/fi';
+import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -13,6 +14,18 @@ const Contact = () => {
     const [responseMsg, setResponseMsg] = useState('');
     const [isError, setIsError] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+
+    const contactInfo = [
+        { icon: <FiMail />, text: 'Adityanain55@gmail.com', href: 'mailto:Adityanain55@gmail.com' },
+        { icon: <FiPhone />, text: '+91 7983183416', href: 'tel:+917983183416' },
+        { icon: <FiMapPin />, text: 'Greater Noida, India' },
+    ];
+
+    const socialLinks = [
+        { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/aditya-choudhary-a46828256/' },
+        { icon: <FaGithub />, href: 'https://github.com/AdityaChoudhary01' },
+        { icon: <FaTwitter />, href: 'https://twitter.com/your-twitter' }, // Replace with your Twitter/X link
+    ];
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,20 +60,63 @@ const Contact = () => {
     return (
         <div className="container mx-auto px-4 py-16 flex items-center justify-center min-h-screen">
             <motion.div
-                className="glass-card w-full max-w-4xl overflow-hidden"
+                className="glass-card w-full max-w-5xl overflow-hidden"
                 initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
                 <div className="md:flex">
-                    {/* Left Side: Illustration */}
-                    <div className="hidden md:flex md:w-1/2 bg-blue-500/20 p-8 items-center justify-center">
-                         <FiMail className="text-blue-400 w-3/4 h-3/4 opacity-50" />
+                    {/* Left Side: Info & Links */}
+                    <div className="md:w-1/2 bg-blue-500/10 dark:bg-slate-800/20 p-8 md:p-12 flex flex-col justify-center">
+                        <h2 className="text-3xl font-bold mb-4">Let's Connect</h2>
+                        <p className="mb-8 text-slate-600 dark:text-slate-300">
+                            Have a project in mind or just want to say hello? Feel free to send me a message or connect with me on social media.
+                        </p>
+                        
+                        <div className="space-y-4 mb-8">
+                            {contactInfo.map((item, index) => (
+                                <motion.div 
+                                    key={index}
+                                    className="flex items-center"
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                                >
+                                    <span className="text-2xl text-[var(--accent-color)] mr-4">{item.icon}</span>
+                                    {item.href ? (
+                                        <a href={item.href} className="hover:underline">{item.text}</a>
+                                    ) : (
+                                        <span>{item.text}</span>
+                                    )}
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <div className="flex space-x-6">
+                            {socialLinks.map((social, index) => (
+                                <motion.a
+                                    key={index}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-3xl text-slate-600 dark:text-slate-300 hover:text-[var(--accent-color)] transition-colors"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: (contactInfo.length + index) * 0.2 }}
+                                    whileHover={{ scale: 1.2, rotate: 5 }}
+                                >
+                                    {social.icon}
+                                </motion.a>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Right Side: Form */}
                     <div className="w-full md:w-1/2 p-8 md:p-12">
-                        <h1 className="text-4xl font-bold text-center mb-8">Get In Touch</h1>
+                        <h2 className="text-3xl font-bold text-center mb-8">Send Me a Message</h2>
                         {isSuccess ? (
                             <div className="text-center p-4 rounded-lg bg-green-500/20 text-green-500">
                                 <FiCheckCircle className="mx-auto text-4xl mb-2" />
