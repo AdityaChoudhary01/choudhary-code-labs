@@ -10,6 +10,8 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Preloader from './components/Preloader';
 import FloatingContactButton from './components/FloatingContactButton'; 
+import Footer from './components/Footer'; // Import Footer
+import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop
 
 function App() {
   const [dark, setDark] = useState(() => {
@@ -38,7 +40,10 @@ function App() {
             </Suspense>
           </Canvas>
         </div>
+        
+        {/* Floating Buttons */}
         <FloatingContactButton /> 
+        <ScrollToTop />
 
         {/* Content */}
         <div className="relative z-10">
@@ -50,6 +55,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </div>
     </Router>
