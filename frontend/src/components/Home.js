@@ -4,7 +4,8 @@ import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 import ScrollIndicator from './ScrollIndicator';
-import image from '../../public/profile.jpg';
+// Remove the direct import of the image from the public folder
+// import image from '../../public/profile.jpg'; 
 
 const Home = () => {
     return (
@@ -38,7 +39,8 @@ const Home = () => {
                     {/* Right Side (Image) */}
                     <div className="mt-10 md:mt-0 md:ml-12 flex justify-center items-center">
                         <motion.img
-                            src={image}
+                            // Update the src to point to the public path
+                            src="/profile.jpg" 
                             alt="Aditya"
                             className="w-60 h-60 md:w-80 md:h-80 object-cover rounded-full shadow-md hover:shadow-lg shadow-blue-600 hover:shadow-purple-800 transition-all duration-300 hover:scale-102"
                             style={{ objectPosition: "top" }} // Ensures the top of the image is visible
