@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiMessageSquare } from 'react-icons/fi'; // Using a nice icon from react-icons
+import { FiMessageSquare } from 'react-icons/fi';
 
 const FloatingContactButton = () => {
   return (
     <motion.div
+      // Position is fixed to the bottom right corner
       className="fixed bottom-8 right-8 z-50"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
@@ -14,7 +15,7 @@ const FloatingContactButton = () => {
       whileTap={{ scale: 0.9 }}
     >
       <Link
-        to="/contact"
+        to="/#contact" // Ensure this links to the contact section hash
         className="flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300"
         aria-label="Contact Me"
       >
