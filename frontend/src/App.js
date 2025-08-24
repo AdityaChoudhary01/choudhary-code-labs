@@ -10,12 +10,14 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Preloader from './components/Preloader';
 import Footer from './components/Footer';
-import FloatingButtons from './components/FloatingButtons'; // Import the new component
+import FloatingButtons from './components/FloatingButtons';
 
 function App() {
   const [dark, setDark] = useState(() => {
+    // Check local storage for a saved theme
     const theme = localStorage.getItem('theme');
-    return theme === 'dark';
+    // Default to dark mode if no theme is saved or if the saved theme is not 'light'
+    return theme === 'light' ? false : true;
   });
 
   useEffect(() => {
