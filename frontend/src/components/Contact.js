@@ -22,9 +22,9 @@ const Contact = () => {
     ];
 
     const socialLinks = [
-        { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/aditya-choudhary-a46828256/' },
+        { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/aditya-kumar-38093a304/' },
         { icon: <FaGithub />, href: 'https://github.com/AdityaChoudhary01' },
-        { icon: <FaTwitter />, href: 'https://twitter.com/your-twitter' }, // Replace with your Twitter/X link
+        { icon: <FaTwitter />, href: 'https://twitter.com/' },
     ];
 
     const handleChange = (e) => {
