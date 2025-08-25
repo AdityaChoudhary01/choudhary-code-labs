@@ -54,7 +54,7 @@ const projects = [
   {
     title: "Aether Sense",
     description: "A dynamic weather application that fetches real-time weather data and displays it in an intuitive UI.",
-    link: "https://adityachoudhary01.github.io/WeatherApp/",
+    link: "https://aethersense.netlify.app",
     image: "/images/weather-app.png",
     tags: ["JavaScript", "HTML", "CSS", "API"],
     repo: "https://github.com/AdityaChoudhary01/WeatherApp"
