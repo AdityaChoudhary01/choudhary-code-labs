@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://choudharycodelabs.netlify.app/sitemap.xml
