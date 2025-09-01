@@ -22,6 +22,9 @@ const connectDB = async () => {
     }
 };
 connectDB();
+app.get('/', (req, res) => {
+    res.status(200).send('Backend is running!');
+});
 
 // --- Email Sending Route ---
 app.post('/api/contact', async (req, res) => {
