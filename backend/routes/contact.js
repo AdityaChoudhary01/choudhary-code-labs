@@ -1,64 +1,73 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const cors = require('cors'); // To handle cross-origin requests
-require('dotenv').config(); // To use environment variables
+const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 
 // --- Middleware ---
-// 1. Enable CORS to allow your frontend to make requests to this backend
-app.use(cors());
-// 2. Middleware to parse JSON bodies
+app.use(cors({
+  origin: 'https://choudharycodelabs.netlify.app', // Explicit origin for security
+  methods: ['POST'],
+}));
 app.use(express.json());
-
 
 // --- API Route for Contact Form ---
 app.post('/api/contact', async (req, res) => {
-    const { name, email, message } = req.body;
+  const { name, email, message } = req.body;
 
-    if (!name || !email || !message) {
-        return res.status(400).json({ success: false, error: 'All fields are required.' });
-    }
+  if (!name || !email || !message) {
+    return res.status(400).json({ success: false, error: 'All fields are required.' });
+  }
 
- // Nodemailer Transporter Setup - MANUAL CONFIGURATION
-const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com', // Specify host manually
-    port: 587,              // Use Port 587 (STARTTLS)
-    secure: false,          // Must be false for port 587 to enable STARTTLS
+  // --- Nodemailer Transporter Setup ---
+  const transporter = nodemailer.createTransport({
+   service: 'gmail',
     auth: {
-        user: process.env.EMAIL_USER, // Your email address
-        pass: process.env.EMAIL_PASS, // MUST be an App Password (see Step 2)
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
     },
-});
+    connectionTimeout: 10000, // 10s timeout
+    tls: {
+      rejectUnauthorized: false, // Avoid TLS handshake issues
+    },
+  });
 
-    // Mail Options
-    const mailOptions = {
-        from: `"${name}" <${email}>`,
-        to: process.env.EMAIL_USER,
-        subject: `New Choudhary Code Labs form Submission from ${name}`,
-        html: `
-            <h2>New Message from your Choudhary Code Labs Portfolio Contact Form</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message}</p>
-        `,
-    };
+  // --- Verify SMTP Connection ---
+  try {
+    await transporter.verify();
+    console.log('SMTP server is ready to send messages');
+  } catch (verifyError) {
+    console.error('SMTP verification failed:', verifyError);
+    return res.status(500).json({ success: false, error: 'SMTP server not reachable.' });
+  }
 
-    // Send the Email
-    try {
-        await transporter.sendMail(mailOptions);
-        res.status(200).json({ success: true, message: 'Message sent successfully!' });
-    } 
-    catch (error) {
+  // --- Mail Options ---
+  const mailOptions = {
+    from: `"${name}" <${email}>`,
+    to: process.env.EMAIL_USER,
+    subject: `New Choudhary Code Labs form Submission from ${name}`,
+    html: `
+      <h2>New Message from your Choudhary Code Labs Portfolio Contact Form</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message}</p>
+    `,
+  };
+
+  // --- Send Email ---
+  try {
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ success: true, message: 'Message sent successfully!' });
+  } catch (error) {
     console.error('Error sending email:', error);
     res.status(500).json({ success: false, error: error.message });
-}
+  }
 });
 
-
-// --- Start the Server ---
+// --- Start Server ---
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
