@@ -20,14 +20,16 @@ app.post('/api/contact', async (req, res) => {
         return res.status(400).json({ success: false, error: 'All fields are required.' });
     }
 
-    // Nodemailer Transporter Setup
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER, // Your email address from environment variables
-            pass: process.env.EMAIL_PASS, // Your email App Password from environment variables
-        },
-    });
+ // Nodemailer Transporter Setup - MANUAL CONFIGURATION
+const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com', // Specify host manually
+    port: 587,              // Use Port 587 (STARTTLS)
+    secure: false,          // Must be false for port 587 to enable STARTTLS
+    auth: {
+        user: process.env.EMAIL_USER, // Your email address
+        pass: process.env.EMAIL_PASS, // MUST be an App Password (see Step 2)
+    },
+});
 
     // Mail Options
     const mailOptions = {
