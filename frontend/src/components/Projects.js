@@ -11,6 +11,14 @@ const projects = [
     tags: ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt"],
     repo: "https://github.com/AdityaChoudhary01/public-peernotez"
   },
+     {
+    title: "ParikshaNode",
+    description: "ParikshaNode is a modern MERN stack quiz platform. Create, share, and take quizzes on various subjects with features like dark mode and per-question timers.",
+    link: "https://parikshanode.netlify.app/",
+    image: "/images/parikshanode.png",
+    tags: ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt","Gemini Api", "Socket.io"],
+    repo: "https://github.com/AdityaChoudhary01/public-peernotez"
+  },
         {
     title: "JatPedia",
     description: "JatPedia is a community-driven initiative to document, preserve, and celebrate the rich history, culture, and heritage of the Jat community for future generations.",
