@@ -3,23 +3,39 @@ import { motion } from 'framer-motion';
 import { FiGithub } from 'react-icons/fi';
 
 const projects = [
-    {
+  {
+    title: "StuHive",
+    description: "The ultimate university resource companion and academic network. A comprehensive hub providing verified notes, syllabus-aligned materials, and peer collaboration.",
+    link: "https://www.stuhive.in",
+    image: "/images/stuhive.webp",
+    tags: ["Next.js", "React", "Node.js", "MongoDB", "AWS", "Tailwind CSS", "Cloudinary"],
+    repo: "https://github.com/AdityaChoudhary01"
+  },
+  {
+    title: "WishZep",
+    description: "A modern e-commerce platform that brings your favorite products right to your fingertips, combining convenience, variety, and a seamless shopping experience.",
+    link: "https://wishzep.shop",
+    image: "/images/wishzep.webp",
+    tags: ["React", "Node.js", "Express", "MongoDB", "AWS", "Tailwind CSS", "Payment Gateway"],
+    repo: "https://github.com/AdityaChoudhary01"
+  },
+  {
     title: "PeerNotez",
     description: "PeerNotez is a collaborative platform dedicated to helping students learn and share knowledge freely",
     link: "https://peernotez.netlify.app/",
-    image: "/images/peernotez.png",
+    image: "/images/peernotez.webp",
     tags: ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt"],
     repo: "https://github.com/AdityaChoudhary01/public-peernotez"
   },
-     {
+  {
     title: "ParikshaNode",
     description: "ParikshaNode is a modern MERN stack quiz platform. Create, share, and take quizzes on various subjects with features like dark mode and per-question timers.",
     link: "https://parikshanode.netlify.app/",
-    image: "/images/parikshanode.png",
+    image: "/images/parikshanode.webp",
     tags: ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt","Gemini Api", "Socket.io"],
     repo: "https://github.com/AdityaChoudhary01/public-peernotez"
   },
-        {
+  {
     title: "JatPedia",
     description: "JatPedia is a community-driven initiative to document, preserve, and celebrate the rich history, culture, and heritage of the Jat community for future generations.",
     link: "https://jatpedia.netlify.app/",
@@ -27,7 +43,7 @@ const projects = [
     tags: ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt","Gemini Ai","Firebase","SEO Ready"],
     repo: "https://github.com/AdityaChoudhary01/public-jatpedia"
   },
-      {
+  {
     title: "PingNest",
     description: "A full-stack real-time chat application with user authentication, messaging, and responsive design.",
     link: "https://pingnest.netlify.app/login",
@@ -35,11 +51,11 @@ const projects = [
     tags: ["React", "Node.js", "MongoDB", "JWT"],
     repo: "https://github.com/AdityaChoudhary01/PingNest"
   },
-      {
-    title: "AuravoAi",
-    description: "Auravo AI is a cutting-edge chat application designed to provide intelligent, helpful, and engaging conversations. Our mission is to push the boundaries of artificial intelligence to create a seamless and intuitive user experience.",
-    link: "https://auravoai.vercel.app/",
-    image: "/images/auravoai.png",
+  {
+    title: "ShivloxAi",
+    description: "Shivlox AI is a cutting-edge chat application designed to provide intelligent, helpful, and engaging conversations. Our mission is to push the boundaries of artificial intelligence to create a seamless and intuitive user experience.",
+    link: "https://shivloxai.netlify.app/",
+    image: "/images/shivloxai.webp",
     tags:  ["React", "Node.js", "Express", "MongoDB","AWS","Cloudinary","TailWind CSS","Redux","JWT","Bycrypt","Gemini Ai","Firebase","SEO Ready"],
     repo: "https://github.com/AdityaChoudhary01/PingNest"
   },
@@ -91,7 +107,7 @@ const projects = [
     tags: ["React", "Tailwind CSS", "Framer Motion","NodeMailer"],
     repo: "https://github.com/AdityaChoudhary01/portfolio3"
   },
-      {
+  {
     title: "FolioForge",
     description: "A personal portfolio website showcasing projects, skills, and contact information.",
     link: "https://folioforge.vercel.app/",
